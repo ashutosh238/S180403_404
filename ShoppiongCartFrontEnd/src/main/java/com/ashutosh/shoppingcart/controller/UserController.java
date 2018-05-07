@@ -1,0 +1,38 @@
+package com.ashutosh.shoppingcart.controller;
+
+import org.springframework.stereotype.Controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class UserController {
+	@PostMapping("/validate")
+	public ModelAndView validate(@RequestParam String id,@RequestParam String password)
+	{
+		//always we suppose to navigate to homepage
+		ModelAndView mv=new ModelAndView("home");
+		
+		//id=niit
+		//pass=niit@123
+		
+		if(id.equals("niit")&&password.equals("niit123"))
+		{
+			
+		//success msg
+			mv.addObject("msg","Welcome you are loged in"+id);
+			
+		}
+		else
+		{
+		//error msg
+		mv.addObject("msg","wrong credentials are entered");
+		}
+return mv;
+	}
+	
+}
+	
+
+
